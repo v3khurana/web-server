@@ -11,6 +11,8 @@ console.log(path.join(__dirname, "../public")); */
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 //To notify express about the templating engine - set templating engine
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "../public")));
@@ -106,6 +108,6 @@ app.get("/about", (req, res) => {
   res.send("This is about page");
 }); */
 
-app.listen(3000, () => {
-  console.log(chalk.black.bgGreen.bold("Server is up on port 3000"));
+app.listen(port, () => {
+  console.log(chalk.black.bgGreen.bold("Server is up on port", port));
 });
